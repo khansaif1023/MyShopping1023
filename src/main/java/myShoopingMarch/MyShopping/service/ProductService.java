@@ -23,6 +23,15 @@ public class ProductService {
     @Autowired
     UserRepository userRepository;
 
+    public Product getProductById(UUID id){
+        return productRepository.findById(id).orElse(null);
+
+    }
+
+    public void updateProductQuantity(UUID productID,int quantity){
+        productRepository.updateProductQuantity(productID,quantity);
+    }
+
     public List<ProductDTO> convertProdcutToProdcutDTO(List<Product> products){
         List<ProductDTO> productList=new ArrayList<>();
 
